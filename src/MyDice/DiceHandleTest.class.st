@@ -25,3 +25,14 @@ DiceHandleTest >> testCreationAdding [
 		yourself.
 	self assert: handle diceNumber = 2.
 ]
+
+{ #category : #tests }
+DiceHandleTest >> testRoll [
+
+	| handle |
+	handle:= DiceHandle new
+		addDice: (Dice withFaces: 6);
+		addDice: (Dice withFaces: 10);
+		yourself.
+	1000 timesRepeat: [ handle roll between:2  and:16 ]
+]

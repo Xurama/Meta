@@ -36,6 +36,13 @@ Dice >> initialize [
 	faces:= 6.
 ]
 
+{ #category : #printing }
+Dice >> printOn: aStream [ 
+
+	super printOn: aStream.
+	aStream nextPutAll: ' ( ', faces printString, ')'
+]
+
 { #category : #'as yet unclassified' }
 Dice >> roll [
 
