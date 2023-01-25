@@ -7,10 +7,26 @@ Class {
 	#category : #MyDice
 }
 
+{ #category : #arithmetic }
+DiceHandle >> + aDiceHandle [
+
+	| handle |
+	handle:= self class new.
+	self dice do: [  :each | handle addDice: each ].
+	aDiceHandle dice do: [ :each | handle addDice: each ].
+	^ handle.
+]
+
 { #category : #adding }
 DiceHandle >> addDice: aDie [
 
 	dice add: aDie.
+]
+
+{ #category : #accessing }
+DiceHandle >> dice [
+
+	^ dice
 ]
 
 { #category : #accessing }

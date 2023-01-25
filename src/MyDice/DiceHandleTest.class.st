@@ -36,3 +36,17 @@ DiceHandleTest >> testRoll [
 		yourself.
 	1000 timesRepeat: [ handle roll between:2  and:16 ]
 ]
+
+{ #category : #tests }
+DiceHandleTest >> testSimpleHandle [
+
+	self assert: 2 D20 diceNumber= 2.
+]
+
+{ #category : #tests }
+DiceHandleTest >> testSumming [
+
+	| handle |
+	handle:= 2 D20 + 3 D10.
+	self assert: handle diceNumber = 5.
+]
