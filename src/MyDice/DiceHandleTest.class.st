@@ -5,6 +5,38 @@ Class {
 }
 
 { #category : #tests }
+DiceHandleTest >> testAddTwoDice [
+
+	| hd |
+	hd:= (Dice withFaces: 6) + (Dice withFaces: 6).
+	self assert: hd dice size = 2.
+]
+
+{ #category : #tests }
+DiceHandleTest >> testAddingADiceAndHandle [
+
+	| hd |
+	hd:= (Dice withFaces: 6)
+		+
+			(DiceHandle new 
+				addDice: 6;
+				yourself).
+	self assert: hd dice size equals: 2
+]
+
+{ #category : #tests }
+DiceHandleTest >> testAddingAnHandleWithADie [
+
+	| handle res |
+	handle:= DiceHandle new
+		addDice: (Dice withFaces: 6);
+		addDice: (Dice withFaces: 6);
+		yourself.
+	res:= handle + (Dice withFaces: 20).
+	self assert: res diceNumber equals: 3.
+]
+
+{ #category : #tests }
 DiceHandleTest >> testAddingTwiceTheSameDice [
 
 	| handle |

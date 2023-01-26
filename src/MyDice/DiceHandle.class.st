@@ -8,13 +8,9 @@ Class {
 }
 
 { #category : #arithmetic }
-DiceHandle >> + aDiceHandle [
+DiceHandle >> + aDicable [
 
-	| handle |
-	handle:= self class new.
-	self dice do: [  :each | handle addDice: each ].
-	aDiceHandle dice do: [ :each | handle addDice: each ].
-	^ handle.
+	^ aDicable sumWithHandle: self
 ]
 
 { #category : #adding }
@@ -48,4 +44,25 @@ DiceHandle >> roll [
 	res:= 0.
 	dice do: [ :each | res := res + each roll ].
 	^ res.
+]
+
+{ #category : #arithmetic }
+DiceHandle >> sumWithDice: aDice [
+
+	| handle |
+	handle:= self class new.
+	self dice do: 	[ :each | handle addDice: each ].
+	handle addDice: aDice.
+	^ handle
+]
+
+{ #category : #'as yet unclassified' }
+DiceHandle >> sumWithHandle: aDiceHandle [
+
+	| handle |
+	handle:= self class new.
+	self dice do: [ :each | handle addDice: each ].
+	aDiceHandle dice do: [ :each | handle addDice: each ].
+	^ handle.
+	
 ]

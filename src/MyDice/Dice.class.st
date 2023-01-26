@@ -17,6 +17,12 @@ Dice class >> withFaces: aNumber [
 	^ instance
 ]
 
+{ #category : #arithmetic }
+Dice >> + aDicable [
+
+	^ aDicable sumWithDice: self
+]
+
 { #category : #accessing }
 Dice >> faces [
 
@@ -47,4 +53,22 @@ Dice >> printOn: aStream [
 Dice >> roll [
 
 	^ faces atRandom
+]
+
+{ #category : #arithmetic }
+Dice >> sumWithDice: aDice [
+
+	^ DiceHandle new
+	addDice: self;
+	addDice: aDice; yourself
+]
+
+{ #category : #'as yet unclassified' }
+Dice >> sumWithHandle: aDiceHandle [
+
+	| handle |
+	handle:= DiceHandle new.
+	aDiceHandle dice do: 	[ :each | handle addDice: each ].
+	handle addDice: self.
+	^ handle
 ]
