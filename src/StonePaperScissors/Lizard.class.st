@@ -1,41 +1,41 @@
 Class {
-	#name : #Paper,
+	#name : #Lizard,
 	#superclass : #Object,
 	#category : #StonePaperScissors
 }
 
 { #category : #'as yet unclassified' }
-Paper >> play: anotherTool [
+Lizard >> play: anotherTool [
 
-	^ anotherTool playAgainstPaper: self
+	^ anotherTool playAgainstLizard: self
 ]
 
 { #category : #'as yet unclassified' }
-Paper >> playAgainstLizard: aLizard [
-
-	^ #lizard
-]
-
-{ #category : #'as yet unclassified' }
-Paper >> playAgainstPaper: aPaper [
+Lizard >> playAgainstLizard: aLizard [
 
 	^ #draw
 ]
 
 { #category : #'as yet unclassified' }
-Paper >> playAgainstScissors: aScissors [
+Lizard >> playAgainstPaper: aPaper [
+
+	^ #lizard
+]
+
+{ #category : #'as yet unclassified' }
+Lizard >> playAgainstScissors: aScissors [
 
 	^ #scissors
 ]
 
 { #category : #'as yet unclassified' }
-Paper >> playAgainstSpock: aSpock [
+Lizard >> playAgainstSpock: aSpock [
 
-	^ #paper
+	^ #lizard
 ]
 
 { #category : #'as yet unclassified' }
-Paper >> playAgainstStone: aStone [
+Lizard >> playAgainstStone: aStone [
 
-	^ #paper
+	^ #stone
 ]
