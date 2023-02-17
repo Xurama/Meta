@@ -4,10 +4,21 @@ Class {
 	#category : #Expressions
 }
 
-{ #category : #accessing }
-EExpression >> evaluateWith: aDictionary [
+{ #category : #visiting }
+EExpression >> accept: aVisitor [
 
-	^ self evaluateWith: Dictionary new
+	self subclassResponsibility 
+]
+
+{ #category : #visiting }
+EExpression >> evaluateWith: anEnvironnment [
+
+	| visitor |
+	
+	visitor:= EEvaluatorVisitor new.
+	visitor bindings: anEnvironnment.
+
+	^ self accept: visitor.
 ]
 
 { #category : #accessing }

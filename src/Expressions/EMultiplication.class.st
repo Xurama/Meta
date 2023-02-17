@@ -22,10 +22,9 @@ EMultiplication class >> left: anExp right: anExp2 [
 ]
 
 { #category : #'public access' }
-EMultiplication >> evaluateWith: anObject [
+EMultiplication >> accept: aVisitor [
 
-	^ (right evaluateWith: anObject)
-	  * (left evaluateWith: anObject)
+	^ aVisitor visitMultiplication: self
 ]
 
 { #category : #'as yet unclassified' }

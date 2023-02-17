@@ -27,10 +27,10 @@ EConstant class >> value: anInteger [
 	^ self new value: anInteger 
 ]
 
-{ #category : #'public access' }
-EConstant >> evaluateWith: anObject [
+{ #category : #visiting }
+EConstant >> accept: aVisitor [
 
-	^ value
+	^ aVisitor visitConstant: self
 ]
 
 { #category : #printing }
@@ -39,7 +39,13 @@ EConstant >> printOn: aStream [
 	aStream nextPutAll: value printString
 ]
 
-{ #category : #accessing }
+{ #category : #printing }
+EConstant >> value [
+
+	^ value
+]
+
+{ #category : #printing }
 EConstant >> value: anInteger [
 
 	value:= anInteger

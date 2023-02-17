@@ -14,9 +14,15 @@ ENegation class >> expression: anExpression [
 ]
 
 { #category : #accessing }
-ENegation >> evaluateWith: anObject [
+ENegation >> accept: aVisitor [
 
-	^ (expression evaluateWith: Dictionary new) negated
+	^ aVisitor visitNegation: self
+]
+
+{ #category : #accessing }
+ENegation >> expression [
+
+	^ expression
 ]
 
 { #category : #accessing }

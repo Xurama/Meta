@@ -22,10 +22,9 @@ EAddition class >> left: anInteger right:anInteger2 [
 ]
 
 { #category : #'public access' }
-EAddition >> evaluateWith: anObject [
+EAddition >> accept: aVisitor [
 
-	^ (right evaluateWith: anObject )
-	  + (left evaluateWith: anObject)
+	^ aVisitor visitAddition: self
 ]
 
 { #category : #'public access' }
